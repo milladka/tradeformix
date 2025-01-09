@@ -39,7 +39,7 @@ export async function GET() {
         return `
       <url>
         <loc>${baseUrl}/product/${id}</loc>
-        <lastmod>${date_created}</lastmod>
+        <lastmod>${date.getFullYear()}-${(date.getMonth()+1)}-${date.getDate()}</lastmod>
         <priority>0.8</priority>
       </url>`;
       })
