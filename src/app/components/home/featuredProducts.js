@@ -31,7 +31,7 @@ export async function FeaturedProducts() {
                                         <p className="text-one">Offers ends in:</p>
                                         <p className="text-two">ENDS OF CHRISTMAS</p>
                                     </div>
-                                    <a className="btn btn-primary" href="#">
+                                    <Link className="btn btn-primary" href="/products">
                                         Shop now
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M3.75 12H20.25" stroke="white" strokeWidth="2" strokeLinecap="round"
@@ -39,7 +39,7 @@ export async function FeaturedProducts() {
                                             <path d="M13.5 5.25L20.25 12L13.5 18.75" stroke="white" strokeWidth="2" strokeLinecap="round"
                                                 strokeLinejoin="round" />
                                         </svg>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="add-block-03__image d-none d-md-block">
                                     <img src="./image/add/apple-accessories.png" alt="accessories" className="w-100" />
