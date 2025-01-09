@@ -26,12 +26,10 @@ export async function GET() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
         <loc>${baseUrl}</loc>
-        <lastmod>${date.getFullYear()}-${(date.getMonth()+1)}-${date.getDate()}</lastmod>
         <priority>1</priority>
       </url>
       <url>
         <loc>${baseUrl}/products</loc>
-        <lastmod>${date.getFullYear()}-${(date.getMonth()+1)}-${date.getDate()}</lastmod>
         <priority>1</priority>
       </url>
   ${data
@@ -39,7 +37,7 @@ export async function GET() {
         return `
       <url>
         <loc>${baseUrl}/product/${id}</loc>
-        <lastmod>${date.getFullYear()}-${(date.getMonth()+1)}-${date.getDate()}</lastmod>
+        <lastmod>${date_created}</lastmod>
         <priority>0.8</priority>
       </url>`;
       })
