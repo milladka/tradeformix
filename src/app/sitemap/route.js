@@ -33,11 +33,10 @@ export async function GET() {
         <priority>1</priority>
       </url>
   ${data
-      .map(({ id, date_created }) => {
+      .map(({ id }) => {
         return `
       <url>
         <loc>${baseUrl}/product/${id}</loc>
-        <lastmod>${date_created}</lastmod>
         <priority>0.8</priority>
       </url>`;
       })
