@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import WooCommerce from './service/coreApi';
+import { ToastContainer } from 'react-toastify';
 
 export const metadata = {
   title: "Trade For Mix",
@@ -35,6 +36,7 @@ export default async function RootLayout({ children }) {
             <Header data={data} />
             <main>
               {children}
+              <ToastContainer />
             </main>
             <Footer data={data} />
           </div>

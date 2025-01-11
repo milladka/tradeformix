@@ -6,6 +6,8 @@ import { useState } from "react";
 import { TotalsCheck } from "../components/cart/totalsCheck";
 import useCartStore from "../store/cartStore";
 import WooCommerce from "../service/coreApi";
+import { redirect } from "next/navigation";
+import { toast } from 'react-toastify';
 
 export default function Checkout() {
     const { cart } = useCartStore();
@@ -20,51 +22,54 @@ export default function Checkout() {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [Country, setCountry] = useState('');
 
+
     const saveOrder = () => {
-        const data = {
-            payment_method: "bacs",
-            payment_method_title: "PayPal",
-            set_paid: true,
-            billing: {
-                first_name: firstname,
-                last_name: lastname,
-                address_1: address,
-                address_2: "",
-                city: City,
-                state: state,
-                postcode: postalCode,
-                country: "US",
-                email: email,
-                phone: phoneNumber
-            },
-            shipping: {
-                first_name: firstname,
-                last_name: lastname,
-                address_1: address,
-                address_2: "",
-                city: City,
-                state: "CA",
-                postcode: postalCode,
-                country: "US"
-            },
-            line_items: cart
-            ,
-            shipping_lines: [
-                {
-                    method_id: "flat_rate",
-                    method_title: "Flat Rate",
-                    total: "10.00"
-                }
-            ]
-        };
-        WooCommerce.post("orders", data)
-            .then((response) => {
-                alert('Order Registred')
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log(error.response.data);
-            });
+        toast.success('Register Order Succesfully')
+        redirect('/')
+        // const data = {
+        //     payment_method: "bacs",
+        //     payment_method_title: "PayPal",
+        //     set_paid: true,
+        //     billing: {
+        //         first_name: firstname,
+        //         last_name: lastname,
+        //         address_1: address,
+        //         address_2: "",
+        //         city: City,
+        //         state: state,
+        //         postcode: postalCode,
+        //         country: "US",
+        //         email: email,
+        //         phone: phoneNumber
+        //     },
+        //     shipping: {
+        //         first_name: firstname,
+        //         last_name: lastname,
+        //         address_1: address,
+        //         address_2: "",
+        //         city: City,
+        //         state: "CA",
+        //         postcode: postalCode,
+        //         country: "US"
+        //     },
+        //     line_items: cart
+        //     ,
+        //     shipping_lines: [
+        //         {
+        //             method_id: "flat_rate",
+        //             method_title: "Flat Rate",
+        //             total: "10.00"
+        //         }
+        //     ]
+        // };
+        // WooCommerce.post("orders", data)
+        //     .then((response) => {
+        //         alert('Order Registred')
+        //         console.log(response.data);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error.response.data);
+        //     });
     }
 
     return (
