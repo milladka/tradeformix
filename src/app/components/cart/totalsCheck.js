@@ -2,7 +2,7 @@
 import useCartStore from "@/app/store/cartStore";
 import Link from "next/link";
 
-export function Totals() {
+export function TotalsCheck() {
     const { cart } = useCartStore();
 
     const total = cart.reduce((sum, item) => {
@@ -24,12 +24,7 @@ export function Totals() {
                     <li className="line"></li>
                     <li><span className="total-text">Total</span><span className="total-ammount">${roundedNumber((total + fivePercent + tax))} USD</span></li>
                 </ul>
-                <Link href={'/check-out'} className=" btn btn-primary w-100">
-                    Proceed Order <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3.75 12H20.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M13.5 5.25L20.25 12L13.5 18.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </Link>
+                
             </div>
         </div>
     )

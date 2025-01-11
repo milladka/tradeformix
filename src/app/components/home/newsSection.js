@@ -28,7 +28,7 @@ export async function NewsSection() {
                     {
                         data && data.map(item => {
                             return (
-                                <div className="col-xl-4 col-lg-6 col-md-8 col-xs-11">
+                                <div key={item.id} className="col-xl-4 col-lg-6 col-md-8 col-xs-11">
                                     <div className="card-news">
                                         <div className="card-image">
                                             <a href="#">
