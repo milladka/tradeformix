@@ -1,6 +1,7 @@
 
 import { AddCart } from "@/app/components/product/addCart";
 import WooCommerce from "@/app/service/coreApi";
+import Image from "next/image";
 import { notFound } from 'next/navigation';
 
 async function getProduct(slug) {
@@ -36,80 +37,13 @@ export default async function ProductDetail({ params }) {
                                     <div className="slider-area">
                                         <div className="product-slider--03">
                                             <div className="single-slider">
-                                                <img src={data?.images[0]?.src} alt={data?.images[0]?.alt} />
+                                                <div className="card-image" style={{ maxWidth: '100%', height: 450, position: 'relative', maxHeight: '100%' }}>
+                                                    <Image src={data?.images[0]?.src} alt={data?.images[0]?.alt} fill style={{ objectFit: 'cover' }} />
+                                                </div>
                                             </div>
-                                            {/* <div className="single-slider">
-                                                <img src="/image/product/mac.png" alt="mac" />
-                                            </div>
-                                            <div className="single-slider">
-                                                <img src="/image/product/mac.png" alt="mac" />
-                                            </div>
-                                            <div className="single-slider">
-                                                <img src="/image/product/mac.png" alt="mac" />
-                                            </div>
-                                            <div className="single-slider">
-                                                <img src="/image/product/mac.png" alt="mac" />
-                                            </div>
-                                            <div className="single-slider">
-                                                <img src="/image/product/mac.png" alt="mac" />
-                                            </div>
-                                            <div className="single-slider">
-                                                <img src="/image/product/mac.png" alt="mac" />
-                                            </div> */}
+
                                         </div>
-                                        {/* <div className="silde-wrap">
-                                            <div className="product-slider--03__nav">
-                                                <div className="single-slide">
-                                                    <div className="small-prduct">
-                                                        <img src="/image/product/gallery/01.png" alt="product" />
-                                                    </div>
-                                                </div>
-                                                <div className="single-slide">
-                                                    <div className="small-prduct">
-                                                        <img src="/image/product/gallery/02.png" alt="product" />
-                                                    </div>
-                                                </div>
-                                                <div className="single-slide">
-                                                    <div className="small-prduct">
-                                                        <img src="/image/product/gallery/03.png" alt="product" />
-                                                    </div>
-                                                </div>
-                                                <div className="single-slide">
-                                                    <div className="small-prduct">
-                                                        <img src="/image/product/gallery/04.png" alt="product" />
-                                                    </div>
-                                                </div>
-                                                <div className="single-slide">
-                                                    <div className="small-prduct">
-                                                        <img src="/image/product/gallery/05.png" alt="product" />
-                                                    </div>
-                                                </div>
-                                                <div className="single-slide">
-                                                    <div className="small-prduct">
-                                                        <img src="/image/product/gallery/06.png" alt="product" />
-                                                    </div>
-                                                </div>
-                                                <div className="single-slide">
-                                                    <div className="small-prduct">
-                                                        <img src="/image/product/gallery/02.png" alt="product" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="product-slider--03__control-buttons">
-                                                <button className="button button--prev">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M20.25 12H3.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                        <path d="M10.5 5.25L3.75 12L10.5 18.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                    </svg>
-                                                </button>
-                                                <button className="button button--next">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M3.75 12H20.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                        <path d="M13.5 5.25L20.25 12L13.5 18.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div> */}
+
                                     </div>
                                 </div>
                                 <div className="col-xl-6">
@@ -156,7 +90,7 @@ export default async function ProductDetail({ params }) {
                                                     {
                                                         data?.categories.map(cat => {
                                                             return (
-                                                                <span className="px-2" key={cat.id} dangerouslySetInnerHTML={{__html: cat.name}} />
+                                                                <span className="px-2" key={cat.id} dangerouslySetInnerHTML={{ __html: cat.name }} />
                                                             )
                                                         })
                                                     }
@@ -283,8 +217,6 @@ export default async function ProductDetail({ params }) {
                         <nav>
                             <div className="nav nav-tabs" id="nav-tab" role="tablist">
                                 <button className="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="true">Description</button>
-                                <button className="nav-link" id="nav-information-tab" data-bs-toggle="tab" data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information" aria-selected="false">Additional information</button>
-                                <button className="nav-link" id="nav-specification-tab" data-bs-toggle="tab" data-bs-target="#nav-specification" type="button" role="tab" aria-controls="nav-specification" aria-selected="false">Specification</button>
                                 <button className="nav-link" id="nav-review-tab" data-bs-toggle="tab" data-bs-target="#nav-review" type="button" role="tab" aria-controls="nav-review" aria-selected="false">Review</button>
                             </div>
                         </nav>
@@ -356,232 +288,6 @@ export default async function ProductDetail({ params }) {
                                                 <li><span>Local Shipping:</span> up to one week, $19.00</li>
                                                 <li><span>UPS Ground Shipping:</span> 4 - 6 days, $29.00</li>
                                                 <li><span>Unishop Global Export:</span> 3 - 4 days, $39.00</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tab-pane fade" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
-                                <div className="information-content">
-                                    <div className="information-content__one">
-                                        <div className="information-content__overview">
-                                            <h6 className="title">Overview</h6>
-                                            <ul>
-                                                <li><span className="text-gray-900">Model Name:</span><span
-                                                    className=" text-gray-600">MacBook Pro</span></li>
-                                                <li><span className="text-gray-900">Brand:</span><span
-                                                    className=" text-gray-600">Apple</span></li>
-                                                <li><span className="text-gray-900">Specific Uses:</span><span
-                                                    className=" text-gray-600">Personal, Gaming, Business</span></li>
-                                                <li><span className="text-gray-900">Screen Size:</span><span className=" text-gray-600">16
-                                                    Inches</span></li>
-                                                <li><span className="text-gray-900">Display:</span><span className=" text-gray-600">Liquid
-                                                    Retina XDR display</span></li>
-                                                <li><span className="text-gray-900">Key-board:</span><span className=" text-gray-600">Magic
-                                                    Keyboard with Touch ID</span></li>
-                                                <li><span className="text-gray-900">Human Interface Input:</span><span
-                                                    className=" text-gray-600">Keyboard</span></li>
-                                                <li><span className="text-gray-900">CPU Manufacturer:</span><span
-                                                    className=" text-gray-600">Apple</span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="information-content__details">
-                                            <div className="content">
-                                                <h6 className="title">Product Warranty:</h6>
-                                                <p>For warranty information about this product, please click here.</p>
-                                            </div>
-                                            <div className="content">
-                                                <h6 className="title">Operating System:</h6>
-                                                <p>Mac OS Big Sur</p>
-                                            </div>
-                                            <div className="content">
-                                                <h6 className="title">Dimensions:</h6>
-                                                <ul>
-                                                    <li><span className="text-gray-900">Dimensions:</span><span className=" text-gray-600">
-                                                        304.1 x 212.4 x 15.6 mm</span></li>
-                                                    <li><span className="text-gray-900">Weight:</span><span className=" text-gray-600"> 3
-                                                        Pounds (1.4 kg)</span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="information-content__highlights">
-                                        <h6 className="title">Highlights: </h6>
-                                        <ul>
-                                            <li>Stylish & Portable Thin and Light Laptop</li>
-                                            <li>13.3 inch Quad LED Backlit IPS Display (227 PPI, 500 nits Brightness, Wide Colour
-                                                (P3), True Tone Technology)</li>
-                                            <li>Light Laptop without Optical Disk Drive</li>
-                                            <li>No cost EMI starting from $252 USD/month</li>
-                                            <li>Net banking & Credit/ Debit/ ATM card</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tab-pane fade" id="nav-specification" role="tabpanel" aria-labelledby="nav-specification-tab">
-                                <div className="specification-content">
-                                    <div className="content one">
-                                        <div className="specification-content__overview">
-                                            <h6 className="title">General</h6>
-                                            <ul>
-                                                <li><span className="text-gray-900 fw-500">Sales Package</span><span
-                                                    className=" text-gray-600">MacBook Pro, 61 W USB-C Power Adapter, USB-C Charge
-                                                    Cable (2m), User Guide, Warranty Documents</span></li>
-                                                <li><span className="text-gray-900 fw-500">Model Number</span><span
-                                                    className=" text-gray-600">MYD82HN/A</span></li>
-                                                <li><span className="text-gray-900 fw-500">Part Number</span><span
-                                                    className=" text-gray-600">MYD82HN/A</span></li>
-                                                <li><span className="text-gray-900 fw-500">Series</span><span
-                                                    className=" text-gray-600">MacBook Pro</span></li>
-                                                <li><span className="text-gray-900 fw-500">Color</span><span
-                                                    className=" text-gray-600">Space Grey</span></li>
-                                                <li><span className="text-gray-900 fw-500">Type</span><span className=" text-gray-600">Thin
-                                                    and Light Laptop</span></li>
-                                                <li><span className="text-gray-900 fw-500">Suitable For</span><span
-                                                    className=" text-gray-600">Processing & Multitasking</span></li>
-                                                <li><span className="text-gray-900 fw-500">Battery Backup</span><span
-                                                    className=" text-gray-600">Upto 17 hours</span></li>
-                                                <li><span className="text-gray-900 fw-500">Power Supply</span><span
-                                                    className=" text-gray-600">61 W AC Adapter</span></li>
-                                                <li><span className="text-gray-900 fw-500">MS Office Provided</span><span
-                                                    className=" text-gray-600">No</span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="line"></div>
-                                        <div className="specification-content__overview">
-                                            <h6 className="title">Display And Audio Features</h6>
-                                            <ul>
-                                                <li><span className="text-gray-900 fw-500">Touchscreen</span><span
-                                                    className=" text-gray-600">MacBook Pro, 61 W USB-C Power Adapter, USB-C Charge
-                                                    Cable (2m), User Guide, Warranty Documents
-                                                </span></li>
-                                                <li><span className="text-gray-900 fw-500">Screen Size</span><span
-                                                    className=" text-gray-600">33.78 cm (13.3 inch)</span></li>
-                                                <li><span className="text-gray-900 fw-500">Screen Resolution</span><span
-                                                    className=" text-gray-600">2560 x 1600 Pixel</span></li>
-                                                <li><span className="text-gray-900 fw-500">Screen Type</span><span
-                                                    className=" text-gray-600">Quad LED Backlit IPS Display (227 PPI, 500 nits
-                                                    Brightness, Wide Colour (P3), True Tone Technology)</span></li>
-                                                <li><span className="text-gray-900 fw-500">Speakers</span><span
-                                                    className=" text-gray-600">Built-in Speakers</span></li>
-                                                <li><span className="text-gray-900 fw-500">Internal Mic</span><span
-                                                    className=" text-gray-600">Studio Quality Three-mic Array with Directional
-                                                    Beamforming</span></li>
-                                                <li><span className="text-gray-900 fw-500">Sound Properties</span><span
-                                                    className=" text-gray-600">Stereo Speakers with High Dynamic Range, Wide Stereo
-                                                    Sound, Support for Dolby Atmos Playback</span></li>
-                                                <li><span className="text-gray-900 fw-500">Battery Backup</span><span
-                                                    className=" text-gray-600">Upto 17 hours</span></li>
-                                                <li><span className="text-gray-900 fw-500">Power Supply</span><span
-                                                    className=" text-gray-600">61 W AC Adapter</span></li>
-                                                <li><span className="text-gray-900 fw-500">MS Office Provided</span><span
-                                                    className=" text-gray-600">No</span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="line"></div>
-                                        <div className="specification-content__overview">
-                                            <h6 className="title">Port And Slot Features</h6>
-                                            <ul>
-                                                <li><span className="text-gray-900 fw-500">Mic In
-                                                </span><span className=" text-gray-600">Yes</span></li>
-                                                <li><span className="text-gray-900 fw-500">USB Port</span><span className=" text-gray-600">2
-                                                    x Thunderbolt / USB 4 Ports (Supports Charging, DisplayPort, Thunderbolt 3
-                                                    (Upto 40 Gbps), USB 3.1 (2nd Gen, Upto 10 Gbps)</span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="line"></div>
-                                        <div className="specification-content__overview">
-                                            <h6 className="title">Connectivity Features
-                                            </h6>
-                                            <ul>
-                                                <li><span className="text-gray-900 fw-500">Wireless LAN
-                                                </span><span className=" text-gray-600">IEEE 802.11ax (Wi-Fi 6)</span></li>
-                                                <li><span className="text-gray-900 fw-500">Bluetooth</span><span
-                                                    className=" text-gray-600">v5.0/A</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div className="content two">
-                                        <div className="specification-content__overview">
-                                            <h6 className="title">Processor And Memory Features
-                                            </h6>
-                                            <ul>
-                                                <li><span className="text-gray-900 fw-500">Processor Brand
-                                                </span><span className=" text-gray-600">Apple</span></li>
-                                                <li><span className="text-gray-900 fw-500">Processor Name</span><span
-                                                    className=" text-gray-600">M1 Max</span></li>
-                                                <li><span className="text-gray-900 fw-500">SSD</span><span
-                                                    className=" text-gray-600">Yes</span></li>
-                                                <li><span className="text-gray-900 fw-500">SSD Capacity</span><span
-                                                    className=" text-gray-600">256 GB</span></li>
-                                                <li><span className="text-gray-900 fw-500">RAM</span><span className=" text-gray-600">8
-                                                    GB</span></li>
-                                                <li><span className="text-gray-900 fw-500">RAM Type</span><span
-                                                    className=" text-gray-600">DDR4</span></li>
-                                                <li><span className="text-gray-900 fw-500">Processor Varient</span><span
-                                                    className=" text-gray-600">Apple M1 Chip</span></li>
-                                                <li><span className="text-gray-900 fw-500">Expandable Memory</span><span
-                                                    className=" text-gray-600">Up to 16 GB</span></li>
-                                                <li><span className="text-gray-900 fw-500">Graphic Processor
-                                                </span><span className=" text-gray-600">NM</span></li>
-                                                <li><span className="text-gray-900 fw-500">Number of Cores</span><span
-                                                    className=" text-gray-600">8</span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="line"></div>
-                                        <div className="specification-content__overview">
-                                            <h6 className="title">Additional Features
-                                            </h6>
-                                            <ul>
-                                                <li><span className="text-gray-900 fw-500">Disk Drive
-                                                </span><span className=" text-gray-600">MacBook Pro, 61 W USB-C Power Adapter, USB-C
-                                                    Charge Cable (2m), User Guide, Warranty Documents
-                                                    </span></li>
-                                                <li><span className="text-gray-900 fw-500">Web Camera</span><span
-                                                    className=" text-gray-600">720p FaceTime HD Webcam</span></li>
-                                                <li><span className="text-gray-900 fw-500">Keyboard</span><span
-                                                    className=" text-gray-600">Backlit Magic Keyboard</span></li>
-                                                <li><span className="text-gray-900 fw-500">Pointer Device</span><span
-                                                    className=" text-gray-600">Force Touch Trackpad</span></li>
-                                                <li><span className="text-gray-900 fw-500">Included Software</span><span
-                                                    className=" text-gray-600">Built-in Apps: iMovie, Siri, GarageBand, Pages,
-                                                    Numbers, Photos, Keynote, Safari, Mail, FaceTime, Messages, Maps, Stocks,
-                                                    Home, Voice Memos, Notes, Calendar, Contacts, Reminders, Photo Booth,
-                                                    Preview, Books, App Store, Time Machine, TV, Music, Podcasts, Find My,
-                                                    QuickTime Player</span></li>
-                                                <li><span className="text-gray-900 fw-500">Additional Features</span><span
-                                                    className=" text-gray-600">58.2 WHr Li-polymer Battery</span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="line"></div>
-                                        <div className="specification-content__overview">
-                                            <h6 className="title">Warranty
-                                            </h6>
-                                            <ul>
-                                                <li><span className="text-gray-900 fw-500">Warranty Summary
-                                                </span><span className=" text-gray-600">1 Year Limited Warra­nty
-                                                    </span></li>
-                                                <li><span className="text-gray-900 fw-500">Warranty Service Type</span><span
-                                                    className=" text-gray-600">Onsite</span></li>
-                                                <li><span className="text-gray-900 fw-500">Covered in Warranty</span><span
-                                                    className=" text-gray-600">Manufacturing Defects</span></li>
-                                                <li><span className="text-gray-900 fw-500">Not Covered in Warranty</span><span
-                                                    className=" text-gray-600">Physical Damage</span></li>
-                                                <li><span className="text-gray-900 fw-500">Domestic Warranty</span><span
-                                                    className=" text-gray-600">1 Year
-                                                </span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="line"></div>
-                                        <div className="specification-content__overview">
-                                            <h6 className="title">Connectivity Features
-                                            </h6>
-                                            <ul>
-                                                <li><span className="text-gray-900 fw-500">Wireless LAN
-                                                </span><span className=" text-gray-600">IEEE 802.11ax (Wi-Fi 6)
-                                                    </span></li>
-                                                <li><span className="text-gray-900 fw-500">Bluetooth</span><span
-                                                    className=" text-gray-600">v5.0/A</span></li>
                                             </ul>
                                         </div>
                                     </div>

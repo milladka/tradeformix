@@ -142,7 +142,7 @@ export default async function Products() {
                                 data.length > 0 ? data.map(item => {
                                     return (
 
-                                        <Link href={`/product/${item.id}`} key={item.id} className="card-product card-product--03 ">
+                                        <Link href={`/product/${item.id}`} key={item.id} className="card-product card-product--03 d-flex flex-column justify-content-center align-items-center">
                                             <div className="card-image" style={{ width: 200, height: 200, position: 'relative' }}>
                                                 <Image  src={item.images && item.images[0].src} fill alt="card" style={{ objectFit: 'cover' }} />
                                                 <div className="card-hover">

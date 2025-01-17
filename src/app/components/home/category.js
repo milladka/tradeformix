@@ -3,7 +3,14 @@ import Link from "next/link";
 
 async function getCategory() {
     let data = [];
-    await WooCommerce.get(`products/categories`).then((response) => {
+    await WooCommerce.get(`products/categories`, {
+        headers: {
+            "Cache-Control": "no-cache",
+        },
+        params: {
+            timestamp: Date.now(),
+        },
+    }).then((response) => {
         data = response.data;
     }).catch((error) => {
 
@@ -34,7 +41,7 @@ export async function CategorySection() {
                                                     <img src={item.image?.src} alt={item.image?.alt} className="mw-100" />
                                                 </div> */}
                                                 <div className="card-body p-0">
-                                                    <h6 className="title" dangerouslySetInnerHTML={{__html: item.name}} />
+                                                    <h6 className="title" dangerouslySetInnerHTML={{ __html: item.name }} />
                                                 </div>
                                             </div>
                                         </Link>

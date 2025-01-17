@@ -138,9 +138,9 @@ export default async function Category({ params }) {
                                 data.length > 0 ? data.map(item => {
                                     return (
 
-                                        <Link href={`/product/${item.id}`} key={item.id} className="card-product card-product--03 ">
+                                        <Link href={`/product/${item.id}`} key={item.id} className="card-product card-product--03 d-flex flex-column justify-content-center align-items-center">
                                             <div className="card-image ">
-                                                <Image height={195} width={195} src={item?.images && item?.images[0]?.src} alt="card" className="mw-100" />
+                                                <Image height={200} width={200} src={item?.images && item?.images[0]?.src} alt="card" className="mw-100" />
                                                 <div className="card-hover">
                                                     <div className="view" data-bs-toggle="modal" data-bs-target="#productView">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,6 +1,6 @@
 import { BannerArea } from "./components/home/bannerArea";
 import { BestDealSectionOne } from "./components/home/best-deal-section-01";
-import { CategorySection } from "./components/home/category";
+import  {CategorySection} from "./components/home/category";
 import { CtaTwo } from "./components/home/ctaTwo";
 import { FeaturedProducts } from "./components/home/featuredProducts";
 import { FeaturesSectionOne } from "./components/home/features-section-01";
