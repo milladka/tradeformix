@@ -4,7 +4,14 @@ import Link from "next/link";
 
 async function getProduct() {
     let data = [];
-    await WooCommerce.get(`products?per_page=12`).then((response) => {
+    await WooCommerce.get(`products?per_page=12`, {
+        headers: {
+            "Cache-Control": "no-cache",
+        },
+        params: {
+            timestamp: Date.now(),
+        },
+    }).then((response) => {
         data = response.data;
     }).catch((error) => { });
 

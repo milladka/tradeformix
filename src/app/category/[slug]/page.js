@@ -5,7 +5,14 @@ import { notFound } from "next/navigation";
 
 async function getProduct(slug) {
     let data = [];
-    await WooCommerce.get(`products?category=${slug}`).then((response) => {
+    await WooCommerce.get(`products?category=${slug}`, {
+        headers: {
+            "Cache-Control": "no-cache",
+        },
+        params: {
+            timestamp: Date.now(),
+        },
+    }).then((response) => {
         //console.log(response)
         data = response.data;
     }).catch((error) => {
@@ -19,7 +26,14 @@ async function getProduct(slug) {
 
 async function getCategory() {
     let data = [];
-    await WooCommerce.get(`products/categories`).then((response) => {
+    await WooCommerce.get(`products/categories`, {
+        headers: {
+            "Cache-Control": "no-cache",
+        },
+        params: {
+            timestamp: Date.now(),
+        },
+    }).then((response) => {
         data = response.data;
     }).catch((error) => { });
     return data

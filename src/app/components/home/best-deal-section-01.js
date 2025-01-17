@@ -6,7 +6,14 @@ import Image from "next/image";
 async function getProduct() {
 
   let data = [];
-  await WooCommerce.get(`products?per_page=8&orderby=date`).then((response) => {
+  await WooCommerce.get(`products?per_page=8&orderby=date`, {
+    headers: {
+        "Cache-Control": "no-cache",
+    },
+    params: {
+        timestamp: Date.now(),
+    },
+}).then((response) => {
     //console.log(response)
     data = response.data;
   }).catch((error) => { });

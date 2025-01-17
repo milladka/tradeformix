@@ -10,7 +10,14 @@ export const metadata = {
 
 async function getProduct() {
     let data = [];
-    await WooCommerce.get(`products?per_page=20`).then((response) => {
+    await WooCommerce.get(`products?per_page=20`, {
+        headers: {
+            "Cache-Control": "no-cache",
+        },
+        params: {
+            timestamp: Date.now(),
+        },
+    }).then((response) => {
         //console.log(response)
         data = response.data;
     }).catch((error) => {
@@ -24,7 +31,14 @@ async function getProduct() {
 
 async function getCategory() {
     let data = [];
-    await WooCommerce.get(`products/categories`).then((response) => {
+    await WooCommerce.get(`products/categories`, {
+        headers: {
+            "Cache-Control": "no-cache",
+        },
+        params: {
+            timestamp: Date.now(),
+        },
+    }).then((response) => {
         data = response.data;
     }).catch((error) => { });
     return data

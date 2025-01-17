@@ -6,7 +6,14 @@ import { notFound } from 'next/navigation';
 
 async function getProduct(slug) {
     let data = {};
-    await WooCommerce.get(`products/${slug}`).then((response) => {
+    await WooCommerce.get(`products/${slug}`, {
+        headers: {
+            "Cache-Control": "no-cache",
+        },
+        params: {
+            timestamp: Date.now(),
+        },
+    }).then((response) => {
         // console.log(response)
         data = response.data;
     }).catch((error) => {
