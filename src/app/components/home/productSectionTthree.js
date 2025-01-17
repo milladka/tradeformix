@@ -36,7 +36,7 @@ export async function ProductSectionThree() {
                                     <Link href={`/product/${item.id}`} key={item.id} className=" d-block single-item">
                                         <div className="card-product card-product--04 ">
                                             <div className="card-image" style={{width:90,height:90, position:'relative'}}>
-                                                <Image src={item.images && item.images[0].src} fill alt="card" style={{ objectFit: 'cover' }}  />
+                                                <Image src={item?.images && item?.images[0]?.src} fill alt="card" style={{ objectFit: 'cover' }}  />
                                             </div>
                                             <div className="card-body p-0">
                                                 <h6 className="title">{truncate(item.name)}</h6>

@@ -51,8 +51,8 @@ export default async function Category({ params }) {
 
                                                     return (
                                                         <li key={item.id} >
-                                                            <Link href={`/category/${item.id}`} >
-                                                                {item.name}
+                                                            <Link href={`/category/${item.id}`}>
+                                                                <span dangerouslySetInnerHTML={{__html: item.name}} />
                                                             </Link>
                                                         </li>
                                                     )
@@ -140,7 +140,7 @@ export default async function Category({ params }) {
 
                                         <Link href={`/product/${item.id}`} key={item.id} className="card-product card-product--03 ">
                                             <div className="card-image ">
-                                                <Image height={195} width={195} src={item.images && item.images[0].src} alt="card" className="mw-100" />
+                                                <Image height={195} width={195} src={item?.images && item?.images[0]?.src} alt="card" className="mw-100" />
                                                 <div className="card-hover">
                                                     <div className="view" data-bs-toggle="modal" data-bs-target="#productView">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -33,7 +33,7 @@ export async function Footer({ data }) {
                                                 return (
                                                     <li key={item.id} >
                                                         <Link href={`/category/${item.id}`} >
-                                                            {item.name}
+                                                            <span dangerouslySetInnerHTML={{ __html: item.name }} />
                                                         </Link>
                                                     </li>
                                                 )

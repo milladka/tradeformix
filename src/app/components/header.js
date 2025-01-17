@@ -192,7 +192,7 @@ export function Header({ data }) {
                                     </div>
                                 }
 
-                            </div>                            
+                            </div>
                             <div className="user user-hide_show">
                                 <div id="showHiddenMenuTwo">
                                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -341,7 +341,7 @@ export function Header({ data }) {
                                                     return (
                                                         <li key={item.id} >
                                                             <Link className="dropdown-item" href={`/category/${item.id}`} >
-                                                                {item.name}
+                                                                <span dangerouslySetInnerHTML={{ __html: item.name }} />
                                                             </Link>
                                                         </li>
                                                     )

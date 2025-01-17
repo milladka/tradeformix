@@ -22,19 +22,19 @@ export async function CategorySection() {
                     <h2 className="title">Shop with Categories</h2>
                 </div>
                 <div className="shop-category-section-01__slider">
-                    <div className="product-slider-02 row">
+                    <div className="product-slider-02 row align-items-center justify-content-center">
                         {
                             data.length > 0 && data.map(item => {
                                 if (item.name !== 'Uncategorized') {
 
                                     return (
-                                        <Link key={item.id} href={`/category/${item.id}`} className="single-item col-12 col-lg-2">
+                                        <Link key={item.id} href={`/category/${item.id}`} className="single-item col-12 col-lg-4 mb-3">
                                             <div className="card-product card-product--02 ">
-                                                <div className="card-image ">
+                                                {/* <div className="card-image ">
                                                     <img src={item.image?.src} alt={item.image?.alt} className="mw-100" />
-                                                </div>
+                                                </div> */}
                                                 <div className="card-body p-0">
-                                                    <h6 className="title">{item.name}</h6>
+                                                    <h6 className="title" dangerouslySetInnerHTML={{__html: item.name}} />
                                                 </div>
                                             </div>
                                         </Link>

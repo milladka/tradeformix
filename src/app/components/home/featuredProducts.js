@@ -4,7 +4,7 @@ import Link from "next/link";
 
 async function getProduct() {
     let data = [];
-    await WooCommerce.get(`products?per_page=8`).then((response) => {
+    await WooCommerce.get(`products?per_page=6`).then((response) => {
         data = response.data;
     }).catch((error) => { });
 
@@ -20,7 +20,7 @@ export async function FeaturedProducts() {
         <div className="products-section-01">
             <div className="container">
                 <div className="row align-items-stretch">
-                    <div className="col-xxl-3 ">
+                    <div className="col-lg-3 ">
                         <div className="products-section-01__add h-100">
                             <div className="add-block-03">
                                 <div className="add-block-03__content">
@@ -47,7 +47,7 @@ export async function FeaturedProducts() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-xxl-9 ">
+                    <div className="col-lg-9 ">
                         <div className="products-section-01__wrappper">
                             <div className="products-section-01__wrappper--content">
                                 <div className="section-title">
@@ -80,7 +80,7 @@ export async function FeaturedProducts() {
 
                                                     <Link href={`/product/${item.id}`} key={item.id} className="card-product card-product--03 ">
                                                         <div className="card-image" style={{ height: '70%', display: 'flex', alignItems: 'center' }}>
-                                                            <Image height={195} width={195} src={item.images && item.images[0].src} layout="intrinsic" alt="card" className="mw-100" />
+                                                            <Image height={195} width={195} src={item?.images && item?.images[0]?.src} layout="intrinsic" alt="card" className="mw-100" />
                                                             <div className="card-hover">
                                                                 <div className="view" data-bs-toggle="modal" data-bs-target="#productView">
                                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

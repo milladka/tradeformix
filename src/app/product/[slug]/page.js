@@ -36,7 +36,7 @@ export default async function ProductDetail({ params }) {
                                     <div className="slider-area">
                                         <div className="product-slider--03">
                                             <div className="single-slider">
-                                                <img src={data?.images[0].src} alt={data?.images[0].alt} />
+                                                <img src={data?.images[0]?.src} alt={data?.images[0]?.alt} />
                                             </div>
                                             {/* <div className="single-slider">
                                                 <img src="/image/product/mac.png" alt="mac" />
@@ -156,7 +156,7 @@ export default async function ProductDetail({ params }) {
                                                     {
                                                         data?.categories.map(cat => {
                                                             return (
-                                                                <span className="px-2" key={cat.id}>{cat.name}</span>
+                                                                <span className="px-2" key={cat.id} dangerouslySetInnerHTML={{__html: cat.name}} />
                                                             )
                                                         })
                                                     }

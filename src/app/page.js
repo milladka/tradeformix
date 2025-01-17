@@ -17,7 +17,7 @@ export default function Home() {
       <FeaturesSectionOne />
       <BestDealSectionOne />
       <CategorySection />
-      <FeaturedProducts />
+      {/* <FeaturedProducts /> */}
       <SectionBanner />
       <ProductSectionThree />
       <CtaTwo />

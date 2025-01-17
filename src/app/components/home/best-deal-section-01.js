@@ -6,7 +6,7 @@ import Image from "next/image";
 async function getProduct() {
 
   let data = [];
-  await WooCommerce.get(`products?per_page=8`).then((response) => {
+  await WooCommerce.get(`products?per_page=8&orderby=date`).then((response) => {
     //console.log(response)
     data = response.data;
   }).catch((error) => { });
@@ -135,8 +135,8 @@ export async function BestDealSectionOne() {
                 return (
 
                   <Link href={`/product/${item.id}`} key={item.id} className="card-product card-product--03 ">
-                    <div className="card-image" style={{ height: '80%', display: 'flex', alignItems: 'center' }}>
-                      <Image height={195} width={195} src={item.images && item.images[0].src} layout="intrinsic" alt="card" className="mw-100" />
+                    <div className="card-image" style={{ width: 195, height: 195, position: 'relative' }}>
+                      <Image src={item?.images && item?.images[0]?.src} fill alt="card" style={{ objectFit: 'cover' }} />
                       <div className="card-hover">
                         <div className="view" data-bs-toggle="modal" data-bs-target="#productView">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +145,8 @@ export async function BestDealSectionOne() {
                           </svg>
                         </div>
                       </div>
-                    </div>
+                   </div>
+
                     <div className="card-body p-0">
                       <h6 className="title">{truncate(item.name)}</h6>
                       <p className="price-valu">{item.price} $</p>
