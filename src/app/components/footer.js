@@ -18,7 +18,7 @@ export async function Footer({ data }) {
                                     <span className="text-one">Customer Supports:</span>
                                     <span className="phone">+49-69-1234-5678</span>
                                     <span className="text-one">Max Mustermann <br /> 10115 Berlin, Kentucky 39495</span>
-                                    <span className="mail"><a href="mailto:info@formyneeds.com">info@formyneeds.com</a></span>
+                                    <span className="mail"><a href="mailto:info@tradeformix.com">info@tradeformix.com</a></span>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@ export async function Footer({ data }) {
                 </div>
             </div>
             <div className="copyright-01">
-                <p className="text-14 text-gray-300">For My Needs | Affordable Prices on Top Brands with Free Shipping</p>
+                <p className="text-14 text-gray-300">Trade For Mix | Affordable Prices on Top Brands with Free Shipping</p>
             </div>
         </>
     )

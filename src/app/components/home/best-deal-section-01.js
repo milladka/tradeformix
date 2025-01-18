@@ -136,13 +136,12 @@ export async function BestDealSectionOne() {
 
 
           <div className="best-deal-section-01__product-area--small-product">
-
             {
               data.length > 0 && data.map(item => {
                 return (
 
                   <Link href={`/product/${item.id}`} key={item.id} className="card-product card-product--03 d-flex flex-column justify-content-center align-items-center">
-                    <div className="card-image product-item">
+                    <div className="card-image product-item" style={{}}>
                       <Image src={item?.images && item?.images[0]?.src} fill alt="card" style={{ objectFit: 'cover' }} />
                       <div className="card-hover">
                         <div className="view" data-bs-toggle="modal" data-bs-target="#productView">

@@ -114,12 +114,9 @@ export function Header({ data }) {
                         <div className="top-nav__wrapper--content">
                             <div className="social-content">
                                 <ul className="list-unstyled list-group">
-                                    <li className="text-14">Follow us:</li>
                                     <li><a href="#"><i className="fab fa-twitter"></i></a></li>
                                     <li><a href="#"><i className="fab fa-facebook"></i></a></li>
-                                    <li><a href="#"><i className="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i className="fab fa-reddit"></i></a></li>
-                                    <li><a href="#"><i className="fab fa-youtube"></i></a></li>
+                                    <li><a href="https://youtube.com/@tread-x8q?si=v46dxLfOBcExFapx"><i className="fab fa-youtube"></i></a></li>
                                     <li><a href="#"><i className="fab fa-instagram"></i></a></li>
                                 </ul>
                             </div>
@@ -182,15 +179,16 @@ export function Header({ data }) {
                                                 22H10.5125C10.0771 22.0025 9.65293 21.862 9.30515 21.6001C8.95738 21.3381 8.70524 20.9692 8.5875 20.55L4.0625
                                                 4.725C4.0027 4.51594 3.8764 4.33207 3.70271 4.20125C3.52903 4.07042 3.31744 3.99977 3.1 4H1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
+                                    {
+                                        cart.length > 0 &&
+                                        <div className="frame">
+                                            <span>
+                                                {cart.length}
+                                            </span>
+                                        </div>
+                                    }
                                 </Link>
-                                {
-                                    cart.length > 0 &&
-                                    <div className="frame">
-                                        <span>
-                                            {cart.length}
-                                        </span>
-                                    </div>
-                                }
+
 
                             </div>
                             <div className="user user-hide_show">
