@@ -3,9 +3,18 @@ import Image from "next/image";
 import NiceSelect from "./NiceSelect/NiceSelect";
 import Link from "next/link";
 import useCartStore from "../store/cartStore";
+import { useState,useEffect } from "react";
+import { usePathname } from 'next/navigation';
 
 export function Header({ data }) {
     const { cart } = useCartStore();
+    const [open, setOpen] = useState(false);
+    const pathname = usePathname();
+
+    useEffect(() => {
+        setOpen(false);
+      }, [pathname]);
+
     return (
         <>
             <header className="site-header site-header--menu-center mobile-menu-trigger-dark bg-secondary-700 d-lg-none site-header--absolute">
@@ -17,89 +26,46 @@ export function Header({ data }) {
                             </Link>
                         </div>
                         <div className="menu-block-wrapper ">
-                            <div className="menu-overlay"></div>
-                            <nav className="menu-block menu-block-inner" id="append-menu-header">
+                            <div className={`menu-overlay ${open && 'active'}`}></div>
+                            <nav className={`menu-block menu-block-inner ${open && 'active'} `} id="append-menu-header">
                                 <div className="mobile-menu-head">
                                     <div className="go-back">
                                         <i className="fa fa-angle-left"></i>
                                     </div>
                                     <div className="current-menu-title"></div>
-                                    <div className="mobile-menu-close">&times;</div>
+                                    <div onClick={() => setOpen(!open)} className="mobile-menu-close">&times;</div>
                                 </div>
                                 <ul className="site-menu-main">
                                     <li className="nav-item nav-item-has-children">
-                                        <a href="index.html" className="nav-link-item drop-trigger">Home</a>
+                                        <Link href={'/'} className="nav-link-item drop-trigger">Home</Link>
                                     </li>
                                     <li className="nav-item nav-item-has-children">
-                                        <a href="#" className="nav-link-item drop-trigger">Pages <i className="fas fa-angle-down"></i>
-                                        </a>
-                                        <ul className="sub-menu" id="submenu-2">
-                                            <li className="sub-menu--item">
-                                                <a href="#">About Us</a>
-                                            </li>
-                                            <li className="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" className="drop-trigger">Case Studies<i className="fas fa-angle-right"></i>
-                                                </a>
-                                                <ul className="sub-menu" id="submenu-9">
-                                                    <li className="sub-menu--item">
-                                                        <a href="#">Case Study</a>
-                                                    </li>
-                                                    <li className="sub-menu--item">
-                                                        <a href="#">Case Study Details</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li className="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" className="drop-trigger">Services<i className="fas fa-angle-right"></i>
-                                                </a>
-                                                <ul className="sub-menu" id="submenu-10">
-                                                    <li className="sub-menu--item">
-                                                        <a href="#">Service</a>
-                                                    </li>
-                                                    <li className="sub-menu--item">
-                                                        <a href="#">Service Details</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                        <Link href={'/products'} className="nav-link-item drop-trigger">Browse All Product</Link>
                                     </li>
                                     <li className="nav-item nav-item-has-children">
-                                        <a href="#" className="nav-link-item drop-trigger">Blogs <i className="fas fa-angle-down"></i>
-                                        </a>
-                                        <ul className="sub-menu" id="submenu-11">
-                                            <li className="sub-menu--item">
-                                                <a href="#">Blog One</a>
-                                            </li>
-                                            <li className="sub-menu--item">
-                                                <a href="#">Blog Two</a>
-                                            </li>
-                                            <li className="sub-menu--item">
-                                                <a href="#">Blog Details One</a>
-                                            </li>
-                                            <li className="sub-menu--item">
-                                                <a href="#">Blog Details Two</a>
-                                            </li>
-                                        </ul>
+                                        <Link href={'/support'} className="nav-link-item drop-trigger">Support</Link>
                                     </li>
                                     <li className="nav-item nav-item-has-children">
-                                        <a href="#" className="nav-link-item drop-trigger">Contact
-                                        </a>
+                                        <Link href={'/track-order'} className="nav-link-item drop-trigger">Track Order</Link>
                                     </li>
+                                    <li className="nav-item nav-item-has-children">
+                                        <Link href={'/about-us'} className="nav-link-item drop-trigger">About Us</Link>
+                                    </li>
+
+
                                 </ul>
                                 <div className="m-social-block">
                                     <ul className="list-unstyled list-group">
                                         <li className="text text-14">Follow us:</li>
                                         <li><a href="#"><i className="fab fa-twitter"></i></a></li>
                                         <li><a href="#"><i className="fab fa-facebook"></i></a></li>
-                                        <li><a href="#"><i className="fab fa-pinterest-p"></i></a></li>
-                                        <li><a href="#"><i className="fab fa-reddit"></i></a></li>
-                                        <li><a href="#"><i className="fab fa-youtube"></i></a></li>
+                                        <li><a href="https://youtube.com/@tread-x8q?si=v46dxLfOBcExFapx"><i className="fab fa-youtube"></i></a></li>
                                         <li><a href="#"><i className="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </nav>
                         </div>
-                        <div className="mobile-menu-trigger">
+                        <div onClick={() => setOpen(!open)} className="mobile-menu-trigger">
                             <span></span>
                         </div>
                     </nav>
